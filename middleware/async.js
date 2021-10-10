@@ -1,12 +1,12 @@
-const asyncHandler = fn => (req,res,next) => {
+const asyncHandler = fn => (req, res, next) => {
   // Promise
   //   .resolve(fn(req,res,next))
   //   .catch(next)
   try {
-    fn(req,res,next);
+    fn(req, res, next);
   } catch (err) {
     next(err);
   }
 }
 
-module.exports = asyncHandler ;
+module.exports = asyncHandler;
