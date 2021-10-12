@@ -76,15 +76,6 @@ exports.getBootcamps = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({ success: true, count: bootcamps.length, pagination, data: bootcamps });
 
-
-
-  // try {
-  //   const bootcamps = await Bootcamp.find();
-
-  //   res.status(200).json({success : true , count : bootcamps.length , data : bootcamps });
-  // } catch (err) {
-  //   next(err);
-  // }
 });
 
 // @desc      Get single bootcamps
@@ -111,8 +102,7 @@ exports.createBootcamp = asyncHandler(async (req, res, next) => {
     success: true,
     data: bootcamp
   });
-  // console.log(req.body);
-  // res.status(200).json({ success : true , msg : 'Create a bootcamp' });
+
 });
 
 // @desc      Update bootcamp
@@ -144,13 +134,13 @@ exports.deleteBootcamp = asyncHandler(async (req, res, next) => {
   }
 
   // did not use findByIdAndDelete bcoz it wont trigger the middleware 
-  // remove will trigger the middleware
+  // remove will trigger the middleware -> pre remove
   bootcamp.remove();
 
   res.status(200).json({ success: true, data: {} });
 });
 
-// @desc      Delete bootcamp
+// @desc      Get bootcamp in radius
 // @route     GET /api/v1/bootcamps/radius/:zipcode/:distance
 // @access    Private
 exports.getBootcampsInRadius = asyncHandler(async (req, res, next) => {
