@@ -1,5 +1,6 @@
 // function inside a function
 const advancedResults = (model , populate) => async(req,res,next) => {  
+
   let query;
 
   // copy req.query
