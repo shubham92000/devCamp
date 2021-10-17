@@ -7,10 +7,11 @@ const User = require('../models/User');
 exports.protect = asyncHandler(async(req,res,next) => {
   let token ;
 
+  // set token from bearer token
   if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
     token = req.headers.authorization.split(' ')[1];
   }
-
+  // set token from cookie
   // else if(req.cookies.token){
   //   token = req.cookies.token;
   // }
